@@ -14,10 +14,12 @@ function pridetiEilute(){
     var i; 
     var duom;
     for(i=0; i<6; i++){
+        var duom=inputai[i].value;
+        
         if(i==3){
             checkInp(duom);
         }
-        var duom=inputai[i].value;
+      
         stulpelis.innerText=duom;
         eilute.appendChild(stulpelis);
         stulpelis=document.createElement("td");
