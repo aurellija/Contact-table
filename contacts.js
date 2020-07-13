@@ -1,38 +1,23 @@
 function pridetiEilute(){
     var lentele=document.getElementsByTagName("table")[0];
     var inputai=document.getElementsByTagName("input");
-    var vardas=inputai[0].value;
-    var pavarde=inputai[1].value;
-    var birthday=inputai[2].value;
-    var phone=inputai[3].value;
-    var email=inputai[4].value;
-    var address=inputai[5].value;
 
     var eilute=document.createElement("tr");
-
     var stulpelis=document.createElement("td");
+    
     //var numeris=lentele.childNodes.length;
-
     //stulpelis.innerText=numeris;
     //eilute.appendChild(stulpelis);
     //stulpelis=document.createElement("td");
-    stulpelis.innerText=vardas;
-    eilute.appendChild(stulpelis);
-    stulpelis=document.createElement("td");
-    stulpelis.innerText=pavarde;
-    eilute.appendChild(stulpelis);
-    stulpelis=document.createElement("td");
-    stulpelis.innerText=birthday;
-    eilute.appendChild(stulpelis);
-    stulpelis=document.createElement("td");
-    stulpelis.innerText=phone;
-    eilute.appendChild(stulpelis);
-    stulpelis=document.createElement("td");
-    stulpelis.innerText=email;
-    eilute.appendChild(stulpelis);
-    stulpelis=document.createElement("td");
-    stulpelis.innerText=address;
-    eilute.appendChild(stulpelis);
+    
+    var i; 
+    var duom;
+    for(i=0; i<6; i++){
+        var duom=inputai[i].value;
+        stulpelis.innerText=duom;
+        eilute.appendChild(stulpelis);
+        stulpelis=document.createElement("td");
+    }
     
     var delbtn=document.createElement("input"); // delete button
     delbtn.value="Delete";
