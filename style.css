@@ -1,17 +1,32 @@
 .frame{
     vertical-align: middle;
     padding:10px;
-   
-   
 }
 .frame input{
     margin-left:15px;
 }
-
+td,th{
+    padding:0px 20px 0px 20px;
+    border:1px solid black;
+}
 .frame p{
     font-size:18px;
 }
 div{
     float:left;
     padding:10px;
+}
+body{
+    padding:10px;
+}
+table{
+    margin-left:5px;
+    display:inline-block;
+    border:2px solid rgb(92, 92, 92);
+}
+input{
+    margin:-16px 0px -6px 0px;
+}
+input[type=button]{
+    margin:2px;
 }
