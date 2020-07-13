@@ -5,6 +5,7 @@ function pridetiEilute(){
     var eilute=document.createElement("tr");
     var stulpelis=document.createElement("td");
     
+    //if the number index of contact would be needed:
     //var numeris=lentele.childNodes.length;
     //stulpelis.innerText=numeris;
     //eilute.appendChild(stulpelis);
@@ -39,7 +40,6 @@ function pridetiEilute(){
     savebtn.type="button";
     savebtn.style.display="none"; 
 
-
     stulpelis=document.createElement("td");
     stulpelis.appendChild(delbtn);
     stulpelis.appendChild(editbtn);
@@ -55,8 +55,7 @@ function trinti(btn){
     var lentele=eilute.parentNode;
     lentele.removeChild(eilute);
 
-    ///// skaičiuoja numerius
-
+    // skaičiuoja numerius
     /*for(var i=1;i<lentele.childNodes.length;i++)
     {
         lentele.childNodes[i].firstChild.innerText=i;
@@ -65,12 +64,10 @@ function trinti(btn){
 
 function editdata(btn){
 
-
     var eilute=btn.parentNode.parentNode;
     var savb=eilute.childNodes[6].childNodes[2];
 
     savb.style.display="block";
-
 
     var fname=eilute.childNodes[0];
     var lname=eilute.childNodes[1];
