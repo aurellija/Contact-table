@@ -14,6 +14,9 @@ function pridetiEilute(){
     var i; 
     var duom;
     for(i=0; i<6; i++){
+        if(i==3){
+            checkInp(duom);
+        }
         var duom=inputai[i].value;
         stulpelis.innerText=duom;
         eilute.appendChild(stulpelis);
@@ -48,6 +51,14 @@ function pridetiEilute(){
     eilute.appendChild(stulpelis);
     lentele.appendChild(eilute);
     
+}
+
+function checkInp(phone){
+    if (isNaN(phone)) 
+    {
+        alert("Phone number must contain only digits");
+        return false;
+    }
 }
 
 function trinti(btn){
