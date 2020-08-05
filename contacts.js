@@ -11,20 +11,23 @@ function pridetiEilute(){
     //eilute.appendChild(stulpelis);
     //stulpelis=document.createElement("td");
     
-    var i; 
-    var duom;
+    var i; var x = true;
+    var duom; 
+
     for(i=0; i<6; i++){
         var duom=inputai[i].value;
-        
+
         if(i==3){
-            checkInp(duom);
+            x=checkInp(duom);
+            if(x==false)
+            return;
         }
-      
+
         stulpelis.innerText=duom;
         eilute.appendChild(stulpelis);
         stulpelis=document.createElement("td");
     }
-    
+
     var delbtn=document.createElement("input"); // delete button
     delbtn.value="Delete";
     delbtn.type="button";
@@ -32,7 +35,7 @@ function pridetiEilute(){
         trinti(this);
     };
 
-    var editbtn=document.createElement("input"); // edit and save buttons
+    var editbtn=document.createElement("input"); // edit button
     editbtn.value="Edit";
     editbtn.type="button";
     editbtn.onclick=function(){
@@ -54,15 +57,13 @@ function pridetiEilute(){
     lentele.appendChild(eilute);
     
 }
-
 function checkInp(phone){
     if (isNaN(phone)) 
     {
-        alert("Phone number must contain only digits");
+        alert("Phone number must contain only digits and match the pattern");
         return false;
     }
 }
-
 function trinti(btn){
     var eilute=btn.parentNode.parentNode;
     var lentele=eilute.parentNode;
