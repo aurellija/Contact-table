@@ -1,4 +1,4 @@
-# Contact-table
+# Contacts table
 View, add, remove, edit contacts
 
-https://aurellija.github.io/Contact-table/
+https://aurellija.github.io/Contacts-table/
