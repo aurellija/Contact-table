@@ -1,3 +1,4 @@
+
 function pridetiEilute(){
 
     var form = document.getElementById("form"); // don't reload after submit
@@ -10,7 +11,7 @@ function pridetiEilute(){
     var eilute=document.createElement("tr");
     var stulpelis=document.createElement("td");
     
-    var i; var x = true;
+    var i; // var x = true;
     var duom; 
 
     for(i=0; i<6; i++){
@@ -19,14 +20,14 @@ function pridetiEilute(){
 
         if (duom == "") {
             alert("There are empty fields");
-            return false; 
+            return; 
         }
 
        if (i==0 || i==1) {
         const regex = /([A-Z])\w+/;
         const match = regex.exec(duom);
         if(match) {}
-        else return false; 
+        else return; 
        }
 
        if (i==2) {
@@ -35,16 +36,30 @@ function pridetiEilute(){
         if(match) {}
         else {
             alert("Invalid date. Only year 1920-2020 is allowed.");
-            return false; }
+            return; }
        }
-
-
         if(i==3){
-            x=checkInp(duom); // phone is of digits
-            if(x==false)
-            return;
-            else if (duom.length != 9) {alert("Phone number must be 9 digits long"); return;}
-        }
+            /*x=checkInp(duom); // phone is of digits
+            if(x==false) return; */
+            const regex = /[(][8][-][6][0-9]{2}[)][0-9]{5}/;
+            const match = regex.exec(duom);
+            if(match) {}
+            else return; 
+           }
+
+        if(i==4){
+            const regex = /(\w|\w+[.]\w)+[@]+[a-z]+[.]+[a-z]+/;
+            const match = regex.exec(duom);
+            if(match) {}
+            else return; 
+            }
+
+        if(i==5){
+            const regex = /(([A-Z])\w+|([A-Z][.]+\s+[A-Z]\w+))+\s+[g.]+\s+\d{1,3}/;
+            const match = regex.exec(duom);
+            if(match) {}
+            else return;
+            }
 
         stulpelis.innerText=duom;
         eilute.appendChild(stulpelis);
@@ -80,13 +95,15 @@ function pridetiEilute(){
     lentele.appendChild(eilute);
     
 }
-function checkInp(phone){
+
+/*function checkInp(phone){
     if (isNaN(phone)) 
     {
         alert("Phone number must contain only digits and match the pattern");
         return false;
     }
-}
+}*/
+
 function trinti(btn){
     var eilute=btn.parentNode.parentNode;
     var lentele=eilute.parentNode;
