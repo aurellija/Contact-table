@@ -1,26 +1,49 @@
 function pridetiEilute(){
+
+    var form = document.getElementById("form"); // don't reload after submit
+    function handleForm(event) { event.preventDefault(); } 
+    form.addEventListener('submit', handleForm);
+
     var lentele=document.getElementsByTagName("table")[0];
     var inputai=document.getElementsByTagName("input");
 
     var eilute=document.createElement("tr");
     var stulpelis=document.createElement("td");
     
-    //if the number index of contact would be needed:
-    //var numeris=lentele.childNodes.length;
-    //stulpelis.innerText=numeris;
-    //eilute.appendChild(stulpelis);
-    //stulpelis=document.createElement("td");
-    
     var i; var x = true;
     var duom; 
 
     for(i=0; i<6; i++){
+
         var duom=inputai[i].value;
 
+        if (duom == "") {
+            alert("There are empty fields");
+            return false; 
+        }
+
+       if (i==0 || i==1) {
+        const regex = /([A-Z])\w+/;
+        const match = regex.exec(duom);
+        if(match) {}
+        else return false; 
+       }
+
+       if (i==2) {
+        const regex = /([1][9][2-9][0-9]|([2][0][2][0]|[2][0][0-1][0-9]))+[-]+([0][1-9]|[1][0-2])+[-]+([0][1-9]|[1][0-9]|[2][0-9]|[3][0-1])/;
+        const match = regex.exec(duom);
+        if(match) {}
+        else {
+            alert("Invalid date. Only year 1920-2020 is allowed.");
+            return false; }
+       }
+
+
         if(i==3){
-            x=checkInp(duom);
+            x=checkInp(duom); // phone is of digits
             if(x==false)
             return;
+            else if (duom.length != 9) {alert("Phone number must be 9 digits long"); return;}
         }
 
         stulpelis.innerText=duom;
@@ -68,12 +91,6 @@ function trinti(btn){
     var eilute=btn.parentNode.parentNode;
     var lentele=eilute.parentNode;
     lentele.removeChild(eilute);
-
-    // skaičiuoja numerius
-    /*for(var i=1;i<lentele.childNodes.length;i++)
-    {
-        lentele.childNodes[i].firstChild.innerText=i;
-    }*/ 
 }
 
 function editdata(btn){
